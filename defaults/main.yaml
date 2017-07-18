@@ -40,30 +40,30 @@ clamav_clamd_config:
   LocalSocket: '{{ clamav_run_dir }}/clamd.sock'
   FixStaleSocket: 'yes'
   TCPSocket: '{{ clamav_clamd_port }}'
-  TCPAddr: 127.0.0.1
+  TCPAddr: 0.0.0.0
   MaxConnectionQueueLength: 30
   MaxThreads: 50
   ReadTimeout: 300
   User: '{{ clamav_user }}'
   AllowSupplementaryGroups: 'yes'
-  ScanPE: 'yes'
-  ScanELF: 'yes'
+  ScanPE: 'no'
+  ScanELF: 'no'
   DetectBrokenExecutables: 'yes'
-  ScanOLE2: 'yes'
-  ScanMail: 'yes'
+  ScanOLE2: 'no'
+  ScanMail: 'no'
   ScanArchive: 'yes'
   ArchiveBlockEncrypted: 'no'
   LogFile: /var/log/clamd.log
   LogFileMaxSize: 0
   LogTime: 'yes'
   LogSyslog: 'yes'
-  LogRotate: 'no'
+  LogRotate: 'yes'
   OnAccessMaxFileSize: 5242880
   OnAccessPrevention: 'no'
   OnAccessExcludeUID: 0
 
 # Enabling this is likely to have a significant performance impact to your system
-clamav_onaccess_scanning: true
+clamav_onaccess_scanning: false
 
 # Specify mount paths or file paths you want to include as part of your on-access configuration
 clamav_onaccess_conf:
@@ -71,7 +71,7 @@ clamav_onaccess_conf:
   include_path: []
   exclude_path: []
 
-clamav_daily_cron_enabled: true
+clamav_daily_cron_enabled: false
 
 clamav_daily_cron_exclusions:
   - /dev
@@ -87,7 +87,7 @@ clamav_freshclam_config:
   UpdateLogFile: /var/log/freshclam.log
   LogSyslog: 'yes'
   LogTime: 'yes'
-  LogRotate: 'no'
+  LogRotate: 'yes'
 
 
 clamav_http_proxy_enabled: false
