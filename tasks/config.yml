@@ -64,15 +64,6 @@
     file_type: file
   register: clamav_config_files
 
-# Remove any configuration files not explicitly managed by ansible
-- name: Clamav | Remove unmanaged config files
-  file:
-    path: '{{ item.path }}'
-    state: absent
-    force: 'yes'
-  with_items: '{{ clamav_config_files.files }}'
-  when: ('scan.conf' not in {{item.path}})
-
 - name: Clamav | Create daily scan script
   template:
     src: daily_scan.cron.j2
