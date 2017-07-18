@@ -6,13 +6,15 @@ clamav_packages:
     state: installed
   - name: clamav-update
     state: installed
-  - name: clamav-scanner-systemd
+  - name: clamav-scanner-sysvinit
     state: installed
   - name: libsemanage-python
     state: installed
+  - name: libselinux-python
+    state: installed
 
 # Selinux settings
-clamav_selinux_enabled: true
+clamav_selinux_enabled: false
 clamav_selinux_bools:
   - { name: antivirus_can_scan_system, value: 1 }
 
@@ -21,7 +23,7 @@ clamav_user: root
 clamav_group: root
 
 # Systemd service name
-clamav_service: 'clamd@scan'
+clamav_service: 'clamd.scan'
 
 # Configuration directories
 clamav_confd_dir: /etc/clamd.d
