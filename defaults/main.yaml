@@ -51,7 +51,7 @@ clamav_clamd_config:
   DetectBrokenExecutables: 'yes'
   ScanOLE2: 'no'
   ScanMail: 'no'
-  ScanArchive: 'yes'
+  ScanArchive: 'no'
   ArchiveBlockEncrypted: 'no'
   LogFile: /var/log/clamd.log
   LogFileMaxSize: 0
