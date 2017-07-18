@@ -71,7 +71,7 @@
     state: absent
     force: 'yes'
   with_items: '{{ clamav_config_files.files }}'
-  when: ('scan.conf' not in '{{ item.path }}')
+  when: ('scan.conf' not in 'item.path')
 
 - name: Clamav | Create daily scan script
   template:
