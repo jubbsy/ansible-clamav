@@ -2,5 +2,5 @@
 - name: Clamav | Start service
   service:
     name: "{{ clamav_service }}"
-    state: started
+    state: stopped
     enabled: yes
