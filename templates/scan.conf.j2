@@ -20,15 +20,3 @@ OnAccessMountPath {{ location }}
 OnAccessIncludePath {{ location }}
 {% endfor %}
 {% endif %}
-
-{% if clamav_onaccess_conf['exclude_path'] | length > 0 %}
-# Excluded file paths
-{% for location in clamav_onaccess_conf['exclude_path'] %}
-OnAccessExcludePath {{ location }}
-{% endfor %}
-{% endif %}
-{% else %}
-ScanOnAccess no
-{% endif %}
-
-

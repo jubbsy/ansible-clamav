@@ -53,7 +53,7 @@ clamav_clamd_config:
   #ScanMail: 'no'
   #ScanArchive: 'no'
   #ArchiveBlockEncrypted: 'no'
-  LogFile: /var/log/clamd.log
+  #LogFile: /var/log/clamd.log
   #LogFileMaxSize: 0
   #LogTime: 'yes'
   LogSyslog: 'yes'
